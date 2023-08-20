@@ -68,6 +68,8 @@ void DataBase::RequestToDBdataAll(QString request, uint32_t idCategory)
         tableModel = new QSqlTableModel(this, *dataBase);
         tableModel->setTable("film");
         tableModel->select();
+        tableModel->setHeaderData(1, Qt::Horizontal, tr("Название фильма"));
+        tableModel->setHeaderData(2, Qt::Horizontal, tr("Описание фильма"));
         emit sig_SendDataFromDbAllData(tableModel);
     }
     else if (idCategory == 1) {

@@ -108,6 +108,10 @@ void MainWindow::ScreenDataFromDbAllData(QSqlTableModel *tableModel)
 {
     ///Тут должен быть код ДЗ
     ui->tv_result->setModel(tableModel);
+    ui->tv_result->setColumnHidden(0, true);
+    for (int i = 3; i < tableModel->columnCount(); ++i) {
+        ui->tv_result->setColumnHidden(i, true);
+    }
     ui->tv_result->resizeRowsToContents();
     ui->tv_result->resizeColumnsToContents();
 }
